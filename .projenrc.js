@@ -2,7 +2,10 @@ const { awscdk, javascript, github } = require('projen');
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'Markus Ellers',
   authorAddress: 'm.ellers@inno-on.de',
-  cdkVersion: '2.30.0',
+  cdkVersion: '2.230.0',
+  constructsVersion: '10.4.3',
+  jsiiVersion: '~5.9.0',
+  workflowNodeVersion: '22.x',
   majorVersion: '1',
   defaultReleaseBranch: 'main',
   releaseBranches: {
@@ -35,7 +38,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
       schedule: javascript.UpgradeDependenciesSchedule.WEEKLY,
     },
   },
-  devDeps: ['aws-cdk-lib', 'constructs', 'awslint'],
+  devDeps: ['awslint'],
   gitignore: ['.DS_Store', '.idea', '.vscode'],
   docgen: true,
   autoApproveUpgrades: true,
